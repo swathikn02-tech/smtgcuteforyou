@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+  <div id="lockScreen" class="fixed inset-0 z-50 flex items-center justify-center bg-[#fffafa] px-6">
+    <div class="w-full max-w-sm text-center">
+      <div class="text-5xl mb-5">💌</div>
+      <h1 class="font-display text-4xl text-[#4b2931] mb-3">For Bhu Bhu ❤️</h1>
+      <p class="text-[#6b4b52] mb-6">A little something made just for you.</p>
+
+      <form id="passcodeForm" class="flex flex-col items-center">
+        <input
+          id="passcodeInput"
+          type="password"
+          inputmode="numeric"
+          maxlength="4"
+          autocomplete="off"
+          placeholder="Enter passcode"
+          class="w-48 text-center px-5 py-3 rounded-full border border-rose-200 bg-white outline-none focus:ring-2 focus:ring-rose-200 text-lg tracking-[0.4em]"
+        />
+
+        <button
+          type="submit"
+          class="mt-4 px-7 py-3 rounded-full bg-[#4b2931] text-white hover:bg-[#63343f] transition">
+          Open 💗
+        </button>
+
+        <p id="wrongPasscode" class="hidden mt-4 text-sm text-rose-400">
+          Hmm… that's not it 🥺 Try again.
+        </p>
+      </form>
+    </div>
+  </div>
+
+  <div id="website" class="hidden">
+
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>For Bhu Bhu ❤️</title>
+
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            display: ["Georgia", "serif"]
+          }
+        }
+      }
+    }
+  </script>
+
+  <style>
+    body {
+      cursor: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='32' height='32' viewBox='0 0 32 32'%3E%3Ctext y='25' font-size='24'%3E%E2%9D%A4%EF%B8%8F%3C/text%3E%3C/svg%3E"), auto;
+    }
+
+    button, a {
+      cursor: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='32' height='32' viewBox='0 0 32 32'%3E%3Ctext y='25' font-size='24'%3E%F0%9F%92%97%3C/text%3E%3C/svg%3E"), pointer;
+    }
+
+    @keyframes fade {
+      from {
+        opacity: 0;
+        transform: translateY(10px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .fade {
+      animation: fade .5s ease-in-out;
+    }
+  </style>
+</head>
+
+<body class="min-h-screen bg-[#fffafa] text-[#4b2931]">
+
+  <main class="min-h-screen flex items-center justify-center px-6 py-12">
+    <div id="app" class="w-full max-w-2xl"></div>
+  </main>
+
+  </div>
+
+  <script>
+    const passcodeForm = document.getElementById("passcodeForm");
+    const passcodeInput = document.getElementById("passcodeInput");
+    const lockScreen = document.getElementById("lockScreen");
+    const website = document.getElementById("website");
+    const wrongPasscode = document.getElementById("wrongPasscode");
+
+    passcodeForm.addEventListener("submit", function (event) {
+      event.preventDefault();
+
+      if (passcodeInput.value === "1201") {
+        lockScreen.classList.add("hidden");
+        website.classList.remove("hidden");
+      } else {
+        wrongPasscode.classList.remove("hidden");
+        passcodeInput.value = "";
+        passcodeInput.focus();
+      }
+    });
+  </script>
+
+  <script src="./script.js"></script>
+</body>
+</html>
